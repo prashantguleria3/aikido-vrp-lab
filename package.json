@@ -1,0 +1,25 @@
+{
+  "name": "aikido-vrp-lab",
+  "version": "1.0.0",
+  "description": "Controlled research application for Aikido VRP security testing",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest test/smoke.test.js",
+    "health": "curl -s http://localhost:3000/health"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "lodash": "4.17.20",
+    "minimist": "1.2.5",
+    "axios": "^1.6.0",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3"
+  }
+}

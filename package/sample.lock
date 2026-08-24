@@ -1,0 +1,8 @@
+# sample lockfile for SCA analysis
+# format: gem not actual npm
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rails (7.0.0)
+      activesupport (= 7.0.0)
+    nokogiri (1.13.0)

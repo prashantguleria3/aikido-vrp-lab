@@ -1,0 +1,81 @@
+openapi: "3.0.3"
+info:
+  title: "Aikido VRP Lab API"
+  version: "1.0.0"
+  description: "Controlled research application for Aikido security testing"
+servers:
+  - url: https://api.aikido-vrp-lab.example.com
+    description: Production
+  - url: http://localhost:3000
+    description: Development
+paths:
+  /health:
+    get:
+      summary: Health check
+      operationId: healthCheck
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status: { type: string, example: "ok" }
+  /api/users:
+    get:
+      summary: List users
+      operationId: listUsers
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 10
+      responses:
+        "200":
+          description: User list
+  /api/users/{id}:
+    get:
+      summary: Get user by ID
+      operationId: getUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: User object
+        "404":
+          description: Not found
+  /api/items/{id}:
+    get:
+      summary: Get item by ID
+      operationId: getItem
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Item object
+  /api/items:
+    post:
+      summary: Create item
+      operationId: createItem
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name: { type: string }
+                price: { type: number }
+      responses:
+        "201":
+          description: Created
